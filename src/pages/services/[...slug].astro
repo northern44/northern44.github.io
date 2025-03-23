@@ -1,0 +1,23 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import ServiceOffering from '../../layouts/ServiceOffering.astro';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('services', ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'services'>;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<ServiceOffering {...post.data}>
+	<Content />
+</ServiceOffering>

@@ -1,0 +1,23 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<main>
+			<h1>🧭 {SITE_TITLE}</h1>
+			<p>
+				We are a Minnesota-based fractional CTO consultancy helping small businesses think forward with cutting-edge technology while keeping a grounded, Midwest sensibility. We bring expertise in technical strategy, software architecture, project management, early developer mentorship, and AWS usage audits to help you scale smartly and sustainably. Whether you're building something new or trying to untangle a growing stack, we're here to guide you with clarity and purpose.
+			</p>
+			<p>Get in touch at <a href="mailto:hello@northern44.com">hello@northern44.com</a> to learn more about how our fractional CTO services can support your team.</p>
+		</main>
+		<Footer />
+	</body>
+</html>
